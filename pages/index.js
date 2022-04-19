@@ -1,11 +1,11 @@
-import GlobalStyles from "../styles/GlobalStyles";
+import Header from "../src/components/Header/Header";
+import { Wrapper } from "./page.styles/index.styles";
 
 
 export default function Home() {
   return (
-    <div>
-     ola
-     <GlobalStyles/>
-    </div>
+      <Wrapper>
+        <Header />
+      </Wrapper>
   )
 }
