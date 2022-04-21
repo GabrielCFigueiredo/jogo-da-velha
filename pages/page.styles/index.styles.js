@@ -4,5 +4,5 @@ export const Wrapper = styled.div `
 
 display: grid;
 place-items: center;
-height: 100vh;
+min-height: 70vh;
 `

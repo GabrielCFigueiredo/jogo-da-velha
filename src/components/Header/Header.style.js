@@ -4,7 +4,6 @@ export const WrapperHeader = styled.div `
 
 display: grid;
 place-items: center;
-
 `
 export const ContainerLogo = styled.div `  
 
