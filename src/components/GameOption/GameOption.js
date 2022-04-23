@@ -1,10 +1,10 @@
 import Icon from "../Icon/Icon";
 import { WrapperGameOption } from "./GameOption.styles";
 
-export default function GameOption({status}) {
+export default function GameOption({status, onClick}) {
     
     return (
-        <WrapperGameOption>
+        <WrapperGameOption onClick={onClick}>
             {
                 status === 1 && <Icon  iconName={"circle"}/>
             }
