@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
+import GameInfo from "../GameInfo/GameInfo";
 import GameOption from "../GameOption/GameOption";
-import Icon from "../Icon/Icon";
-import { ContainerGame, ContainerPlayer, WrapperGame } from "./Game.styles";
+import { ContainerGame, WrapperGame } from "./Game.styles";
 
 export default function Game() {
 
     const [game, setGame] = useState(Array(9).fill(0))
     const [current, setCurrent] = useState(-1)
     const [winner, setWinner] = useState(0)
+    const [winnerLine, setWinnerLine] = useState([])
 
     const tableWinner = [
         [0,1,2],
@@ -35,8 +36,22 @@ export default function Game() {
             const sun = values.reduce((sun, value) => sun + value)
             if (sun === 3 || sun === -3) {
                 setWinner(sun / 3)
+                setWinnerLine(line)
+                
             }
         })
+    }
+
+    const verifyWinnerLine = (pos) => {
+      winnerLine.find((value) => value === pos) !== undefined
+       
+    }
+   
+
+    const handleReset = () => {
+        setGame(Array(9).fill(0))
+        setWinner(0)
+        setWinnerLine([])
     }
 
     useEffect(() => {
@@ -53,24 +68,16 @@ export default function Game() {
                         key={pos}
                         status={value}
                         onClick={() => handleClick(pos)}
+                        isWinner={verifyWinnerLine(pos)}
                     />
                     )
                 }
             </ContainerGame>
-            <ContainerPlayer>
-                <h4>
-                    Proximo a jogar:
-                </h4>
-                <div>
-                    {
-                        current === 1 && <Icon iconName={"circle"} />
-                    }
-                    {
-                        current === -1 && <Icon iconName={"x"} />
-                    }
-                </div>
-
-            </ContainerPlayer>
+            <GameInfo
+            current={current}
+            winner={winner}
+            onReset={handleReset}
+            />
 
         </WrapperGame>
     )

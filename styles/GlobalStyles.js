@@ -7,7 +7,7 @@ export default createGlobalStyle`
     padding: 0;
 }
 
-body {
+body, html {
     background-color: black;
     color: white;
 }
