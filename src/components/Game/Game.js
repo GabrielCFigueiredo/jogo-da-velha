@@ -9,16 +9,17 @@ export default function Game() {
     const [current, setCurrent] = useState(-1)
     const [winner, setWinner] = useState(0)
     const [winnerLine, setWinnerLine] = useState([])
+    const [draw, setDraw] = useState(false)
 
     const tableWinner = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
     ]
 
     const handleClick = (pos) => {
@@ -32,33 +33,42 @@ export default function Game() {
 
     const verifyWinner = () => {
         tableWinner.forEach((line) => {
-            const values = line.map((pos) => game[pos] )
+            const values = line.map((pos) => game[pos])
             const sun = values.reduce((sun, value) => sun + value)
             if (sun === 3 || sun === -3) {
                 setWinner(sun / 3)
                 setWinnerLine(line)
-                
             }
         })
     }
 
-    const verifyWinnerLine = (pos) => {
-      winnerLine.find((value) => value === pos) !== undefined
-       
-    }
-   
+    const verifyWinnerLine = (pos) => winnerLine.find((value) => value === pos) !== undefined
 
     const handleReset = () => {
         setGame(Array(9).fill(0))
         setWinner(0)
         setWinnerLine([])
+        setDraw(false)
     }
+
+    const verifyDraw = () => {
+        if (game.filter((value) => value === 0).length === 0)
+            setDraw(true)
+    }
+
+    useEffect(() => {
+        if (winner !== 0) {
+            setDraw(false)
+        }
+    }, [winner])
+
 
     useEffect(() => {
 
         setCurrent(current * -1)
         verifyWinner()
-    },[game])
+        verifyDraw()
+    }, [game])
 
     return (
         <WrapperGame>
@@ -69,14 +79,16 @@ export default function Game() {
                         status={value}
                         onClick={() => handleClick(pos)}
                         isWinner={verifyWinnerLine(pos)}
+                        isDraw={draw}
                     />
                     )
                 }
             </ContainerGame>
             <GameInfo
-            current={current}
-            winner={winner}
-            onReset={handleReset}
+                current={current}
+                winner={winner}
+                onReset={handleReset}
+                draw={draw}
             />
 
         </WrapperGame>
