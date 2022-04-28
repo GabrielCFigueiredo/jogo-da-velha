@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WrapperGame = styled.div ` 
+export const WrapperGame = styled.div` 
 
 display: flex;
 justify-content: space-between;
@@ -14,7 +14,7 @@ flex-direction: column;
 }
 
 `
-export const ContainerGame = styled.div `  
+export const ContainerGame = styled.div`  
 
 display: grid;
 place-items: center;
@@ -22,7 +22,7 @@ grid-template-columns: repeat(3, 1fr);
 gap: 16px;
 min-width: 170px;
 `
-export const ContainerPlayer = styled.div `  
+export const ContainerPlayer = styled.div`  
 
 display: flex;
 flex-direction: column;

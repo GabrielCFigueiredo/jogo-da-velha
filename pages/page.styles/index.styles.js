@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div ` 
+export const Wrapper = styled.div` 
 
 display: grid;
 place-items: center;
 max-width: 100vw;
 max-height: 100vh;
-` 
+`
 
-export const Container = styled.div `  
+export const Container = styled.div`  
 
 display: grid;
 place-items: center;
