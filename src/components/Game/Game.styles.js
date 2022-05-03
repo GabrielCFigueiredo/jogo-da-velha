@@ -4,6 +4,18 @@ export const WrapperGame = styled.div`
 
 display: flex;
 justify-content: space-between;
+flex-direction: column;
+align-items: center;
+gap: 16px;  
+width: 350px;
+height: 500px;
+
+`
+export const Container = styled.div `  
+
+display: flex;
+justify-content: space-between;
+
 align-items: center;
 gap: 16px;  
 width: 350px;
@@ -12,7 +24,6 @@ height: 500px;
 
 flex-direction: column; 
 }
-
 `
 export const ContainerGame = styled.div`  
 

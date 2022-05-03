@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import GameInfo from "../GameInfo/GameInfo";
 import GameOption from "../GameOption/GameOption";
-import { ContainerGame, WrapperGame } from "./Game.styles";
+import Score from "../Score/Score";
+
+import { Container, ContainerGame, WrapperGame } from "./Game.styles";
 
 export default function Game() {
 
@@ -10,6 +12,8 @@ export default function Game() {
     const [winner, setWinner] = useState(0)
     const [winnerLine, setWinnerLine] = useState([])
     const [draw, setDraw] = useState(false)
+    const [winnerCircle, setWinnerCircle] = useState(0)
+    const [winnerX, setWinnerX] = useState(0)
 
     const tableWinner = [
         [0, 1, 2],
@@ -38,9 +42,12 @@ export default function Game() {
             if (sun === 3 || sun === -3) {
                 setWinner(sun / 3)
                 setWinnerLine(line)
+                sun > 0 ? setWinnerCircle(winnerCircle + 1) : setWinnerX(winnerX + 1)
             }
         })
     }
+
+
 
     const verifyWinnerLine = (pos) => winnerLine.find((value) => value === pos) !== undefined
 
@@ -72,24 +79,31 @@ export default function Game() {
 
     return (
         <WrapperGame>
-            <ContainerGame>
-                {
-                    game.map((value, pos) => <GameOption
-                        key={pos}
-                        status={value}
-                        onClick={() => handleClick(pos)}
-                        isWinner={verifyWinnerLine(pos)}
-                        isDraw={draw}
-                    />
-                    )
-                }
-            </ContainerGame>
-            <GameInfo
-                current={current}
-                winner={winner}
-                onReset={handleReset}
-                draw={draw}
+            <Score
+                winnerCircle={winnerCircle}
+                winnerX={winnerX}
             />
+            <Container>
+                <ContainerGame>
+                    {
+                        game.map((value, pos) => <GameOption
+                            key={pos}
+                            status={value}
+                            onClick={() => handleClick(pos)}
+                            isWinner={verifyWinnerLine(pos)}
+                            isDraw={draw}
+                        />
+                        )
+                    }
+                </ContainerGame>
+                <GameInfo
+                    current={current}
+                    winner={winner}
+                    onReset={handleReset}
+                    draw={draw}
+                />
+            </Container>
+
 
         </WrapperGame>
     )

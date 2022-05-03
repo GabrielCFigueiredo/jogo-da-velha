@@ -46,7 +46,7 @@ export default function GameInfo({ current, winner, onReset, draw }) {
                 </>
             }
             {
-                draw && <h4>empate</h4>
+                draw && <h4>EMPATE</h4>
             }
 
             <Button

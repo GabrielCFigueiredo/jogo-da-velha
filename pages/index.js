@@ -1,6 +1,8 @@
+import styled from "styled-components";
 import Game from "../src/components/Game/Game";
 import Header from "../src/components/Header/Header";
-import { Container, Wrapper } from "./page.styles/index.styles";
+
+
 
 
 export default function Home() {
@@ -14,3 +16,23 @@ export default function Home() {
 
   )
 }
+
+
+
+
+const Wrapper = styled.div` 
+
+display: grid;
+place-items: center;
+max-width: 100vw;
+max-height: 100vh;
+`
+
+const Container = styled.div`  
+
+display: grid;
+place-items: center;
+gap: 16px;
+height: 60%;
+width: 100%;
+` 
