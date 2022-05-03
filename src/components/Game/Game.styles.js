@@ -8,7 +8,7 @@ flex-direction: column;
 align-items: center;
 gap: 16px;  
 width: 350px;
-height: 500px;
+height: 100%;
 
 `
 export const Container = styled.div `  
@@ -23,7 +23,7 @@ width: 350px;
 @media (max-width: 400px) {
 
 flex-direction: column; 
-height: 100%;
+height: 60%;
 }
 `
 export const ContainerGame = styled.div`  

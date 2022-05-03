@@ -8,6 +8,11 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 gap: 30px;
+@media (max-width: 400px) {
+
+margin-top: -10px;
+}
+
 `
 export const ContainerScore = styled.div `  
 
