@@ -20,7 +20,7 @@ export default function Home() {
 
 
 
-Wrapper = styled.div` 
+const Wrapper = styled.div` 
 
 display: grid;
 place-items: center;
@@ -28,7 +28,7 @@ max-width: 100vw;
 max-height: 100vh;
 `
 
-Container = styled.div`  
+const Container = styled.div`  
 
 display: grid;
 place-items: center;
