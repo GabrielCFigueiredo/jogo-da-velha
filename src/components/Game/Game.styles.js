@@ -33,6 +33,10 @@ place-items: center;
 grid-template-columns: repeat(3, 1fr);
 gap: 16px;
 min-width: 170px;
+@media (max-width: 400px) {
+
+margin-top: -30px;
+}
 `
 export const ContainerPlayer = styled.div`  
 
