@@ -10,7 +10,7 @@ flex-direction: column;
 gap: 30px;
 @media (max-width: 400px) {
 
-margin-top: -10px;
+margin-top: -20px;
 }
 
 `
