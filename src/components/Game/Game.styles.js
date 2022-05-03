@@ -19,10 +19,11 @@ justify-content: space-between;
 align-items: center;
 gap: 16px;  
 width: 350px;
-height: 500px;
+
 @media (max-width: 400px) {
 
 flex-direction: column; 
+height: 100%;
 }
 `
 export const ContainerGame = styled.div`  
