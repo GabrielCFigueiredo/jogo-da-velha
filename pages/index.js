@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Game from "../src/components/Game/Game";
 import Header from "../src/components/Header/Header";
-import { Container, Wrapper } from "./index.styles";
+
 
 
 
