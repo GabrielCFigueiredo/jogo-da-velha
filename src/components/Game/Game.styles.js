@@ -7,18 +7,20 @@ justify-content: space-between;
 flex-direction: column;
 align-items: center;
 gap: 16px;  
-width: 350px;
+width: 99vw;
 height: 100%;
+
 
 `
 export const Container = styled.div `  
 
 display: flex;
 justify-content: space-between;
-
+flex-direction: column;
 align-items: center;
 gap: 16px;  
-width: 350px;
+width: 30%;
+height: 50%;
 
 @media (max-width: 400px) {
 
